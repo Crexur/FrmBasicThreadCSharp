@@ -19,6 +19,7 @@ namespace FrmBasicThreadCSharp
 
                     if (loopCount == 5)
                     {
+                        Console.WriteLine("Thread 1 Terminated");
                         break;
                     }
 
@@ -35,12 +36,13 @@ namespace FrmBasicThreadCSharp
 
                     if (loopCount == 5)
                     {
+                        Console.WriteLine("Thread 2 Terminated");
                         break;
                     }
 
                     Thread.Sleep(1500);
                 }
-
+                
             }
         }
 
@@ -53,13 +55,14 @@ namespace FrmBasicThreadCSharp
         {
             Thread threadA = new Thread(MyThreadClass.Thread1);
             Thread threadB = new Thread(MyThreadClass.Thread2);
+            
             threadA.Start();
             threadB.Start();
 
 
             threadA.Join();
             threadB.Join();
-            label1.Text = "-End Of Thread-";
+            label1.Text = "-End Of Thread";
         }
     }
 }
